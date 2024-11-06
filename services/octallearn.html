@@ -315,6 +315,96 @@
                 font-size: 2em;
             }
         }
+	.portal-access {
+    background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+    padding: 80px 0;
+    color: white;
+}
+
+.portal-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 40px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    max-width: 600px;
+    margin: 0 auto;
+    transition: transform 0.3s;
+    color: white;
+}
+
+.portal-card:hover {
+    transform: translateY(-5px);
+}
+
+.portal-card .icon {
+    font-size: 3em;
+    color: #007bff;
+    margin-bottom: 20px;
+}
+
+.portal-card h3 {
+    color: white;
+    font-size: 1.8em;
+    margin-bottom: 20px;
+}
+
+.portal-card p {
+    margin-bottom: 30px;
+    font-size: 1.1em;
+    opacity: 0.9;
+}
+
+.portal-features {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin: 20px 0;
+    flex-wrap: wrap;
+}
+
+.portal-feature {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: white;
+    opacity: 0.9;
+}
+
+.portal-feature i {
+    color: #007bff;
+}
+
+.btn-portal {
+    background: #007bff;
+    color: white;
+    padding: 15px 40px;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: bold;
+    transition: all 0.3s;
+    margin-top: 30px;
+}
+
+.btn-portal:hover {
+    background: #0056b3;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    .portal-features {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .portal-card {
+        margin: 0 20px;
+    }
+}
         /* All the CSS from the previous message */
         /* Copy all the CSS content between the <style> tags from the previous message */
     </style>
@@ -380,6 +470,36 @@
             </div>
         </div>
     </section>
+<!-- After AI-Powered Capabilities section and before "why-choose" section -->
+
+<section class="portal-access">
+    <div class="container">
+        <h2>Access Your Learning Platform</h2>
+        <div class="portal-card" data-aos="fade-up">
+            <i class="fas fa-graduation-cap icon"></i>
+            <h3>OctaLearn LMS Portal</h3>
+            <p>Start your learning journey with our secure and user-friendly platform.</p>
+            <div class="portal-features">
+                <div class="portal-feature">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Secure Access</span>
+                </div>
+                <div class="portal-feature">
+                    <i class="fas fa-clock"></i>
+                    <span>24/7 Available</span>
+                </div>
+                <div class="portal-feature">
+                    <i class="fas fa-mobile-alt"></i>
+                    <span>Mobile Friendly</span>
+                </div>
+            </div>
+            <a href="https://lms.octalearn.sd/login/index.php" class="btn-portal" target="_blank">
+                <i class="fas fa-sign-in-alt"></i>
+                Access Portal
+            </a>
+        </div>
+    </div>
+</section>
 
     <section class="why-choose">
         <div class="container">
