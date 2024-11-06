@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OctaWeb - Professional Web Hosting Solutions</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            width: 100%;
+        }
+
+        .nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0,0,0,0.9);
+            padding: 20px;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .nav a:hover {
+            color: #007bff;
+        }
+
+        .service-header {
+            background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+            color: white;
+            text-align: center;
+            padding: 160px 20px 100px;
+        }
+
+        .service-header .icon {
+            font-size: 4em;
+            margin-bottom: 20px;
+            color: #007bff;
+        }
+
+        .service-header h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+        }
+
+        .service-description {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            color: inherit;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-card .icon {
+            font-size: 2.5em;
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 15px;
+            color: #2a2a2a;
+            font-size: 1.5em;
+        }
+
+        .performance-stats {
+            background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+            color: white;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            text-align: center;
+        }
+
+        .stat-item {
+            padding: 20px;
+        }
+
+        .stat-number {
+            font-size: 3em;
+            color: #007bff;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+            flex-grow: 1;
+        }
+
+        .feature-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .feature-list li:last-child {
+            border-bottom: none;
+        }
+
+        .plan-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .plan-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .plan-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .price {
+            font-size: 2.5em;
+            color: #007bff;
+            margin: 20px 0;
+        }
+
+        .workflow-steps {
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+            margin-top: 40px;
+            position: relative;
+        }
+
+        .step {
+            flex: 1;
+            text-align: center;
+            position: relative;
+            padding: 20px;
+        }
+
+        .step:not(:last-child)::after {
+            content: '→';
+            position: absolute;
+            right: -20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #007bff;
+            font-size: 1.5em;
+        }
+
+        .step .icon {
+            font-size: 2.5em;
+            color: #007bff;
+            margin-bottom: 15px;
+        }
+
+        .cta-section {
+            background: #007bff;
+            color: white;
+            text-align: center;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+            transition: background 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #0056b3;
+        }
+
+        .plan-card .btn {
+            background: white;
+            color: #007bff;
+            border: 2px solid #007bff;
+            margin-top: auto;
+            width: 100%;
+        }
+
+        .plan-card .btn:hover {
+            background: #007bff;
+            color: white;
+        }
+
+        .cta-section .btn {
+            background: white;
+            color: #007bff;
+        }
+
+        .cta-section .btn:hover {
+            background: #f8f9fa;
+        }
+
+        footer {
+            background: #1a1a1a;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .workflow-steps {
+                flex-direction: column;
+            }
+
+            .step:not(:last-child)::after {
+                display: none;
+            }
+
+            .service-header h1 {
+                font-size: 2.5em;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+
+            h2 {
+                font-size: 2em;
+            }
+        }
+    </style>    
+</head>
+<body>
+    <nav class="nav">
+        <a href="../index.html">Home</a>
+        <a href="../index.html#services">Services</a>
+        <a href="../index.html#team">Team</a>
+        <a href="../index.html#contact">Contact</a>
+    </nav>
+
+    <header class="service-header">
+        <i class="fas fa-globe icon"></i>
+        <h1>OctaHost</h1>
+        <p class="service-description">
+            Professional web hosting solutions with guaranteed uptime and performance. From shared hosting to dedicated servers, we've got your web presence covered.
+        </p>
+    </header>
+
+    <section class="features">
+        <div class="container">
+            <h2>Core Services</h2>
+            <div class="features-grid">
+                <div class="feature-card" data-aos="fade-up">
+                    <i class="fas fa-server icon"></i>
+                    <h3>Web Hosting</h3>
+                    <p>High-performance hosting solutions with SSD storage, automated backups, and 99.9% uptime guarantee. Supporting all major platforms including WordPress, Laravel, and custom applications.</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fas fa-sitemap icon"></i>
+                    <h3>DNS Management</h3>
+                    <p>Professional DNS management with advanced features including load balancing, failover configuration, and GeoDNS routing. Simplified domain management through our intuitive control panel.</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fas fa-shield-alt icon"></i>
+                    <h3>SSL Certificates</h3>
+                    <p>Secure your website with SSL certificates. From basic SSL to Extended Validation certificates, we provide complete HTTPS encryption for your web applications.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="performance-stats">
+        <div class="container">
+            <h2>Performance & Reliability</h2>
+            <div class="stats-grid">
+                <div class="stat-item" data-aos="fade-up">
+                    <div class="stat-number">99.9%</div>
+                    <p>Uptime Guarantee</p>
+                </div>
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="100">
+                    <div class="stat-number">24/7</div>
+                    <p>Technical Support</p>
+                </div>
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="stat-number">&lt;1s</div>
+                    <p>Average Response Time</p>
+                </div>
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="300">
+                    <div class="stat-number">100%</div>
+                    <p>DDoS Protection</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="hosting-comparison">
+        <div class="container">
+            <h2>Hosting Solutions</h2>
+            <div class="features-grid">
+                <div class="feature-card" data-aos="fade-up">
+                    <i class="fas fa-share-alt icon"></i>
+                    <h3>Shared Hosting</h3>
+                    <ul class="feature-list">
+                        <li>Perfect for small to medium websites</li>
+                        <li>Managed WordPress support</li>
+                        <li>Free SSL certificate</li>
+                        <li>Daily backups</li>
+                        <li>24/7 support</li>
+                    </ul>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fas fa-box icon"></i>
+                    <h3>VPS Hosting</h3>
+                    <ul class="feature-list">
+                        <li>Dedicated resources</li>
+                        <li>Full root access</li>
+                        <li>Choice of OS</li>
+                        <li>Scalable resources</li>
+                        <li>Advanced security features</li>
+                    </ul>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fas fa-database icon"></i>
+                    <h3>Dedicated Servers</h3>
+                    <ul class="feature-list">
+                        <li>Full server control</li>
+                        <li>Premium hardware</li>
+                        <li>Custom configurations</li>
+                        <li>Advanced monitoring</li>
+                        <li>Priority support</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="pricing-plans">
+        <div class="container">
+            <h2>Hosting Plans</h2>
+            <div class="plan-grid">
+                <div class="plan-card" data-aos="fade-up">
+                    <h3>Basic Hosting</h3>
+                    <div class="price">Contact Us</div>
+                    <ul class="feature-list">
+                        <li>10 GB SSD Storage</li>
+                        <li>Unlimited Bandwidth</li>
+                        <li>Free SSL Certificate</li>
+                        <li>5 Email Accounts</li>
+                        <li>Daily Backups</li>
+                        <li>24/7 Support</li>
+                    </ul>
+                    <a href="../index.html#contact" class="btn">Get Started</a>
+                </div>
+                <div class="plan-card" data-aos="fade-up" data-aos-delay="100">
+                    <h3>Professional Hosting</h3>
+                    <div class="price">Contact Us</div>
+                    <ul class="feature-list">
+                        <li>50 GB SSD Storage</li>
+                        <li>Unlimited Bandwidth</li>
+                        <li>Wildcard SSL</li>
+                        <li>Unlimited Email Accounts</li>
+                        <li>Advanced Backup System</li>
+                        <li>Priority Support</li>
+                        <li>Advanced Caching</li>
+                    </ul>
+                    <a href="../index.html#contact" class="btn">Get Started</a>
+                </div>
+                <div class="plan-card" data-aos="fade-up" data-aos-delay="200">
+                    <h3>Enterprise Hosting</h3>
+                    <div class="price">Contact Us</div>
+                    <ul class="feature-list">
+                        <li>Unlimited SSD Storage</li>
+                        <li>Unlimited Bandwidth</li>
+                        <li>Extended SSL</li>
+                        <li>Custom Email Solution</li>
+                        <li>Advanced Security Features</li>
+                        <li>Dedicated Support Team</li>
+                        <li>Custom Configuration</li>
+                        <li>Load Balancing</li>
+                    </ul>
+                    <a href="../index.html#contact" class="btn">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="workflow">
+        <div class="container">
+            <h2>Getting Started</h2>
+            <div class="workflow-steps">
+                <div class="step" data-aos="fade-right">
+                    <i class="fas fa-check-circle icon"></i>
+                    <h3>Choose Plan</h3>
+                    <p>Select your hosting solution</p>
+                </div>
+                <div class="step" data-aos="fade-right" data-aos-delay="100">
+                    <i class="fas fa-cog icon"></i>
+                    <h3>Setup</h3>
+                    <p>Quick and easy deployment</p>
+                </div>
+                <div class="step" data-aos="fade-right" data-aos-delay="200">
+                    <i class="fas fa-cloud-upload-alt icon"></i>
+                    <h3>Migration</h3>
+                    <p>Free website migration</p>
+                </div>
+                <div class="step" data-aos="fade-right" data-aos-delay="300">
+                    <i class="fas fa-rocket icon"></i>
+                    <h3>Go Live</h3>
+                    <p>Launch your website</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <h2>Launch Your Website Today</h2>
+            <p>Get started with reliable and high-performance web hosting services.</p>
+            <a href="../index.html#contact" class="btn">Contact Us Today</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Octalis. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init({
+                duration: 1000,
+                once: true,
+                offset: 100,
+                easing: 'ease-in-out'
+            });
+        });
+    </script>
+</body>
+</html> 

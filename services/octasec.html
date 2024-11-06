@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OctaSec - Comprehensive Security Solutions</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            width: 100%;
+        }
+
+        .nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0,0,0,0.9);
+            padding: 20px;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .nav a:hover {
+            color: #007bff;
+        }
+
+        .service-header {
+            background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+            color: white;
+            text-align: center;
+            padding: 160px 20px 100px;
+        }
+
+        .service-header .icon {
+            font-size: 4em;
+            margin-bottom: 20px;
+            color: #007bff;
+        }
+
+        .service-header h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+        }
+
+        .service-description {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            color: inherit;
+        }
+
+        h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            color: #2a2a2a;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-card .icon {
+            font-size: 2.5em;
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+
+        .security-audit-types {
+            background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+            color: white;
+        }
+
+        .security-audit-types h2,
+        .security-audit-types h3 {
+            color: white;
+        }
+
+        .audit-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .audit-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .audit-card .icon {
+            font-size: 2.5em;
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+
+        .audit-card .feature-list {
+            color: white;
+            padding-left: 20px;
+        }
+
+        .audit-card .feature-list li {
+            margin-bottom: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 10px;
+        }
+
+        .threat-protection {
+            background: #f8f9fa;
+        }
+
+        .plan-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .plan-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .plan-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .price {
+            font-size: 2.5em;
+            color: #007bff;
+            margin: 20px 0;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+
+        .feature-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .feature-list li:last-child {
+            border-bottom: none;
+        }
+
+        .workflow-steps {
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+            margin-top: 40px;
+            position: relative;
+        }
+
+        .step {
+            flex: 1;
+            text-align: center;
+            position: relative;
+            padding: 20px;
+        }
+
+        .step:not(:last-child)::after {
+            content: '→';
+            position: absolute;
+            right: -20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #007bff;
+            font-size: 1.5em;
+        }
+
+        .step .icon {
+            font-size: 2.5em;
+            color: #007bff;
+            margin-bottom: 15px;
+        }
+
+        .cta-section {
+            background: #007bff;
+            color: white;
+            text-align: center;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+            transition: background 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #0056b3;
+        }
+
+        .plan-card .btn {
+            background: white;
+            color: #007bff;
+            border: 2px solid #007bff;
+            width: 80%;
+        }
+
+        .plan-card .btn:hover {
+            background: #007bff;
+            color: white;
+        }
+
+        .cta-section .btn {
+            background: white;
+            color: #007bff;
+        }
+
+        .cta-section .btn:hover {
+            background: #f8f9fa;
+        }
+
+        footer {
+            background: #1a1a1a;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .workflow-steps {
+                flex-direction: column;
+            }
+
+            .step:not(:last-child)::after {
+                display: none;
+            }
+
+            .service-header h1 {
+                font-size: 2.5em;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+
+            h2 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <a href="../index.html">Home</a>
+        <a href="../index.html#services">Services</a>
+        <a href="../index.html#team">Team</a>
+        <a href="../index.html#contact">Contact</a>
+    </nav>
+
+    <header class="service-header">
+        <i class="fas fa-shield-alt icon"></i>
+        <h1>OctaSec</h1>
+        <p class="service-description">
+            Comprehensive security solutions to protect your digital assets. From security audits to continuous monitoring, we ensure your business stays protected against evolving cyber threats.
+        </p>
+    </header>
+
+    <section class="features">
+        <div class="container">
+            <h2>Core Security Services</h2>
+            <div class="features-grid">
+                <div class="feature-card" data-aos="fade-up">
+                    <i class="fas fa-search icon"></i>
+                    <h3>Security Audits & Assessments</h3>
+                    <p>Comprehensive security evaluations including penetration testing, vulnerability assessments, and compliance audits. We identify vulnerabilities before attackers do.</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fas fa-user-shield icon"></i>
+                    <h3>Security Consultation</h3>
+                    <p>Expert guidance on security architecture, policy development, and risk management. We help you build a robust security strategy aligned with your business goals.</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fas fa-shield-virus icon"></i>
+                    <h3>Threat Protection</h3>
+                    <p>Advanced threat detection and response systems, including SIEM implementation, SOC services, and incident response planning.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="security-audit-types">
+        <div class="container">
+            <h2>Security Audit Types</h2>
+            <div class="features-grid">
+                <div class="audit-card" data-aos="fade-up">
+                    <i class="fas fa-network-wired icon"></i>
+                    <h3>Network Security Audit</h3>
+                    <ul class="feature-list">
+                        <li>Infrastructure assessment</li>
+                        <li>Firewall configuration review</li>
+                        <li>Network segmentation analysis</li>
+                        <li>Access control evaluation</li>
+                    </ul>
+                </div>
+                <div class="audit-card" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fas fa-laptop-code icon"></i>
+                    <h3>Application Security Audit</h3>
+                    <ul class="feature-list">
+                        <li>Code security review</li>
+                        <li>API security testing</li>
+                        <li>Authentication assessment</li>
+                        <li>Data protection analysis</li>
+                    </ul>
+                </div>
+                <div class="audit-card" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fas fa-compliance icon"></i>
+                    <h3>Compliance Audit</h3>
+                    <ul class="feature-list">
+                        <li>GDPR compliance</li>
+                        <li>ISO 27001 readiness</li>
+                        <li>PCI DSS assessment</li>
+                        <li>Custom compliance frameworks</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="threat-protection">
+        <div class="container">
+            <h2>Comprehensive Threat Protection</h2>
+            <div class="features-grid">
+                <div class="feature-card" data-aos="fade-up">
+                    <i class="fas fa-radar icon"></i>
+                    <h3>24/7 Monitoring</h3>
+                    <p>Round-the-clock security monitoring and threat detection with our advanced Security Operations Center (SOC).</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fas fa-virus-slash icon"></i>
+                    <h3>Incident Response</h3>
+                    <p>Rapid response to security incidents with our expert team and established incident response procedures.</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fas fa-shield-check icon"></i>
+                    <h3>Preventive Security</h3>
+                    <p>Proactive security measures including threat hunting and vulnerability management.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="pricing-plans">
+        <div class="container">
+            <h2>Security Service Plans</h2>
+            <div class="plan-grid">
+                <div class="plan-card" data-aos="fade-up">
+                    <h3>Essential Security</h3>
+                    <div class="price">Contact Us</div>
+                    <ul class="feature-list">
+                        <li>Basic Security Assessment</li>
+                        <li>Vulnerability Scanning</li>
+                        <li>Basic Threat Monitoring</li>
+                        <li>Security Policy Review</li>
+                        <li>Quarterly Reports</li>
+                        <li>Email Support</li>
+                    </ul>
+                    <a href="../index.html#contact" class="btn">Get Started</a>
+                </div>
+                <div class="plan-card" data-aos="fade-up" data-aos-delay="100">
+                    <h3>Professional Security</h3>
+                    <div class="price">Contact Us</div>
+                    <ul class="feature-list">
+                        <li>Full Security Audit</li>
+                        <li>Penetration Testing</li>
+                        <li>24/7 Threat Monitoring</li>
+                        <li>Incident Response Support</li>
+                        <li>Monthly Security Reports</li>
+                        <li>Priority Support</li>
+                        <li>Security Training Sessions</li>
+                    </ul>
+                    <a href="../index.html#contact" class="btn">Get Started</a>
+                </div>
+                <div class="plan-card" data-aos="fade-up" data-aos-delay="200">
+                    <h3>Enterprise Security</h3>
+                    <div class="price">Contact Us</div>
+                    <ul class="feature-list">
+                        <li>Custom Security Solution</li>
+                        <li>Advanced Penetration Testing</li>
+                        <li>Dedicated SOC Team</li>
+                        <li>Custom Compliance Audits</li>
+                        <li>24/7 Incident Response</li>
+                        <li>Executive Reports</li>
+                        <li>Dedicated Security Manager</li>
+                        <li>On-site Support Available</li>
+                    </ul>
+                    <a href="../index.html#contact" class="btn">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="workflow">
+        <div class="container">
+            <h2>Security Assessment Process</h2>
+            <div class="workflow-steps">
+                <div class="step" data-aos="fade-right">
+                    <i class="fas fa-clipboard-check icon"></i>
+                    <h3>Initial Assessment</h3>
+                    <p>Security requirements and scope definition</p>
+                </div>
+                <div class="step" data-aos="fade-right" data-aos-delay="100">
+                    <i class="fas fa-search icon"></i>
+                    <h3>Security Audit</h3>
+                    <p>Comprehensive security evaluation</p>
+                </div>
+                <div class="step" data-aos="fade-right" data-aos-delay="200">
+                    <i class="fas fa-file-alt icon"></i>
+                    <h3>Reporting</h3>
+                    <p>Detailed findings and recommendations</p>
+                </div>
+                <div class="step" data-aos="fade-right" data-aos-delay="300">
+                    <i class="fas fa-shield-alt icon"></i>
+                    <h3>Implementation</h3>
+                    <p>Security measures deployment</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <h2>Secure Your Digital Assets Today</h2>
+            <p>Don't wait for a security breach. Take proactive steps to protect your business.</p>
+            <a href="../index.html#contact" class="btn">Contact Us Today</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Octalis. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init({
+                duration: 1000,
+                once: true,
+                offset: 100,
+                easing: 'ease-in-out'
+            });
+        });
+    </script>
+</body>
+</html> 

@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OctaOps - Operations Management Solutions</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0,0,0,0.9);
+            padding: 20px;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+        }
+
+        .nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .nav a:hover {
+            color: #007bff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .service-header {
+            background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+            color: white;
+            text-align: center;
+            padding: 160px 20px 100px;
+        }
+
+        .service-header .icon {
+            font-size: 4em;
+            margin-bottom: 20px;
+            color: #007bff;
+        }
+
+        .service-header h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+        }
+
+        .service-description {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-card .icon {
+            font-size: 2.5em;
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 15px;
+            color: #2a2a2a;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .benefit-card {
+            text-align: center;
+            padding: 30px;
+        }
+
+        .benefit-card i {
+            font-size: 2.5em;
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+
+        .workflow {
+            background: #f8f9fa;
+        }
+
+        .workflow-steps {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .step {
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+            position: relative;
+            padding: 20px;
+        }
+
+        .step:not(:last-child)::after {
+            content: '→';
+            position: absolute;
+            right: -20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #007bff;
+            font-size: 1.5em;
+        }
+
+        .plan-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .plan-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .plan-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .price {
+            font-size: 2.5em;
+            color: #007bff;
+            margin: 20px 0;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+
+        .feature-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .cta-section {
+            background: #007bff;
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background: #0056b3;
+        }
+
+        .plan-card .btn {
+            background: white;
+            color: #007bff;
+            border: 2px solid #007bff;
+        }
+
+        .plan-card .btn:hover {
+            background: #007bff;
+            color: white;
+        }
+
+        .cta-section .btn {
+            background: white;
+            color: #007bff;
+        }
+
+        .cta-section .btn:hover {
+            background: #f8f9fa;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            color: #2a2a2a;
+        }
+
+        footer {
+            background: #1a1a1a;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .step:not(:last-child)::after {
+                display: none;
+            }
+
+            .service-header h1 {
+                font-size: 2.5em;
+            }
+
+            .service-description {
+                font-size: 1.1em;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+
+            .workflow-steps {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .step {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <a href="../index.html">Home</a>
+        <a href="../index.html#services">Services</a>
+        <a href="../index.html#team">Team</a>
+        <a href="../index.html#contact">Contact</a>
+    </nav>
+
+    <header class="service-header">
+        <i class="fas fa-cogs icon"></i>
+        <h1>OctaOps</h1>
+        <p class="service-description">
+            Comprehensive IT operations management for modern businesses. We handle your infrastructure so you can focus on growth.
+        </p>
+    </header>
+
+    <section class="features">
+        <div class="container">
+            <h2>Key Features</h2>
+            <div class="features-grid">
+                <div class="feature-card" data-aos="fade-up">
+                    <i class="fas fa-server icon"></i>
+                    <h3>Infrastructure Monitoring & Management</h3>
+                    <p>24/7 proactive monitoring of your entire IT infrastructure including servers, networks, and applications. Real-time alerts, performance tracking, and automated response systems to prevent downtime. Comprehensive reporting and analytics for resource optimization.</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fas fa-headset icon"></i>
+                    <h3>Dedicated Technical Support</h3>
+                    <p>Round-the-clock technical support from our certified experts. Multi-tier support system with guaranteed response times based on incident severity. Remote and on-site support options available with detailed incident tracking and resolution documentation.</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fas fa-sync icon"></i>
+                    <h3>Business Continuity Management</h3>
+                    <p>Complete disaster recovery and business continuity planning. Regular backup management and testing, failover system implementation, and recovery point optimization. Detailed documentation and regular drills to ensure rapid recovery in case of incidents.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="why-choose">
+        <div class="container">
+            <h2>Why Choose OctaOps?</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card" data-aos="fade-up">
+                    <i class="fas fa-clock"></i>
+                    <h3>24/7 Availability</h3>
+                    <p>Round-the-clock monitoring and support to ensure your systems run smoothly at all times.</p>
+                </div>
+                <div class="benefit-card" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fas fa-certificate"></i>
+                    <h3>Certified Experts</h3>
+                    <p>Team of certified professionals with extensive experience in IT operations management.</p>
+                </div>
+                <div class="benefit-card" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Proactive Approach</h3>
+                    <p>Identify and resolve potential issues before they impact your business operations.</p>
+                </div>
+                <div class="benefit-card" data-aos="fade-up" data-aos-delay="300">
+                    <i class="fas fa-tools"></i>
+                    <h3>Custom Solutions</h3>
+                    <p>Tailored operational support plans that match your specific business needs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="workflow">
+        <div class="container">
+            <h2>How It Works</h2>
+            <div class="workflow-steps">
+                <div class="step" data-aos="fade-right">
+                    <i class="fas fa-search icon"></i>
+                    <h3>Assessment</h3>
+                    <p>Initial infrastructure evaluation and needs analysis</p>
+                </div>
+                <div class="step" data-aos="fade-right" data-aos-delay="100">
+                    <i class="fas fa-paper-plane icon"></i>
+                    <h3>Implementation</h3>
+                    <p>Setup monitoring and management systems</p>
+                </div>
+                <div class="step" data-aos="fade-right" data-aos-delay="200">
+                    <i class="fas fa-chart-bar icon"></i>
+                    <h3>Monitoring</h3>
+                    <p>Continuous monitoring and optimization</p>
+                </div>
+                <div class="step" data-aos="fade-right" data-aos-delay="300">
+                    <i class="fas fa-check-circle icon"></i>
+                    <h3>Support</h3>
+                    <p>Ongoing maintenance and support</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="pricing-plans">
+        <div class="container">
+            <h2>Pricing Plans</h2>
+            <div class="plan-grid">
+                <div class="plan-card" data-aos="fade-up">
+                    <h3>Essential Support</h3>
+                    <div class="price">Contact Us</div>
+                    <ul class="feature-list">
+                        <li>8x5 Infrastructure Monitoring</li>
+                        <li>Email & Phone Support</li>
+                        <li>Next Business Day Response</li>
+                        <li>Monthly System Health Reports</li>
+                        <li>Basic Backup Management</li>
+                    </ul>
+                    <a href="../index.html#contact" class="btn">Get Started</a>
+                </div>
+                <div class="plan-card" data-aos="fade-up" data-aos-delay="100">
+                    <h3>Professional Support</h3>
+                    <div class="price">Contact Us</div>
+                    <ul class="feature-list">
+                        <li>24x7 Infrastructure Monitoring</li>
+                        <li>Priority Email & Phone Support</li>
+                        <li>4-Hour Response Time</li>
+                        <li>Weekly Performance Reports</li>
+                        <li>Advanced Backup Management</li>
+                        <li>Quarterly System Optimization</li>
+                        <li>Dedicated Support Team</li>
+                    </ul>
+                    <a href="../index.html#contact" class="btn">Get Started</a>
+                </div>
+                <div class="plan-card" data-aos="fade-up" data-aos-delay="200">
+                    <h3>Enterprise Support</h3>
+                    <div class="price">Contact Us</div>
+                    <ul class="feature-list">
+                        <li>24x7 Premium Monitoring</li>
+                        <li>Immediate Priority Support</li>
+                        <li>1-Hour Response Time</li>
+                        <li>Daily Performance Reports</li>
+                        <li>Full Disaster Recovery</li>
+                        <li>Monthly System Optimization</li>
+                        <li>Dedicated Technical Account Manager</li>
+                        <li>On-site Support Available</li>
+                    </ul>
+                    <a href="../index.html#contact" class="btn">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Optimize Your IT Operations?</h2>
+            <p>Let us handle your IT infrastructure while you focus on growing your business.</p>
+            <a href="../index.html#contact" class="btn">Contact Us Today</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Octalis. All rights reserved.</p>
+    </footer>
+
+<script>
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init({
+                duration: 1000,
+                once: true,
+                offset: 100,
+                easing: 'ease-in-out'
+            });
+        });
+    </script>
+</body>
+</html>
+

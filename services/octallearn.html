@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OctaLearn - Intelligent Learning Management System</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <style>
+ * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            width: 100%;
+        }
+
+        .nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0,0,0,0.9);
+            padding: 20px;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .nav a:hover {
+            color: #007bff;
+        }
+
+        .service-header {
+            background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+            color: white;
+            text-align: center;
+            padding: 160px 20px 100px;
+        }
+
+        .service-header .icon {
+            font-size: 4em;
+            margin-bottom: 20px;
+            color: #007bff;
+        }
+
+        .service-header h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+        }
+
+        .service-description {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            color: inherit;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-card .icon {
+            font-size: 2.5em;
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 15px;
+            color: #2a2a2a;
+            font-size: 1.5em;
+        }
+
+        .ai-features {
+            background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+            color: white;
+        }
+
+        .ai-features .feature-card {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+
+        .ai-features h2 {
+            color: white;
+        }
+
+        .ai-features .feature-card h3 {
+            color: white;
+        }
+
+        .deployment-options {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .deployment-card {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .deployment-card h3 {
+            color: #007bff;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+        }
+
+        .deployment-card .icon {
+            font-size: 2.5em;
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+            text-align: left;
+        }
+
+        .feature-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .feature-list li:last-child {
+            border-bottom: none;
+        }
+
+        .deployment-card .feature-list {
+            text-align: center;
+        }
+
+        .plan-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .plan-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .plan-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .price {
+            font-size: 2.5em;
+            color: #007bff;
+            margin: 20px 0;
+        }
+
+        .workflow-steps {
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+            margin-top: 40px;
+            position: relative;
+        }
+
+        .step {
+            flex: 1;
+            text-align: center;
+            position: relative;
+            padding: 20px;
+        }
+
+        .step:not(:last-child)::after {
+            content: '→';
+            position: absolute;
+            right: -20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #007bff;
+            font-size: 1.5em;
+        }
+
+        .step .icon {
+            font-size: 2.5em;
+            color: #007bff;
+            margin-bottom: 15px;
+        }
+
+        .cta-section {
+            background: #007bff;
+            color: white;
+            text-align: center;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+            transition: background 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #0056b3;
+        }
+
+        .plan-card .btn {
+            background: white;
+            color: #007bff;
+            border: 2px solid #007bff;
+        }
+
+        .plan-card .btn:hover {
+            background: #007bff;
+            color: white;
+        }
+
+        .cta-section .btn {
+            background: white;
+            color: #007bff;
+        }
+
+        .cta-section .btn:hover {
+            background: #f8f9fa;
+        }
+
+        footer {
+            background: #1a1a1a;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .deployment-options {
+                grid-template-columns: 1fr;
+            }
+
+            .workflow-steps {
+                flex-direction: column;
+            }
+
+            .step:not(:last-child)::after {
+                display: none;
+            }
+
+            .service-header h1 {
+                font-size: 2.5em;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+
+            h2 {
+                font-size: 2em;
+            }
+        }
+        /* All the CSS from the previous message */
+        /* Copy all the CSS content between the <style> tags from the previous message */
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <a href="../index.html">Home</a>
+        <a href="../index.html#services">Services</a>
+        <a href="../index.html#team">Team</a>
+        <a href="../index.html#contact">Contact</a>
+    </nav>
+
+    <header class="service-header">
+        <i class="fas fa-graduation-cap icon"></i>
+        <h1>OctaLearn</h1>
+        <p class="service-description">
+            Intelligent Learning Management System powered by AI. Choose between our hosted solution or deploy your own customized platform.
+        </p>
+    </header>
+
+    <section class="features">
+        <div class="container">
+            <h2>Key Features</h2>
+            <div class="features-grid">
+                <div class="feature-card" data-aos="fade-up">
+                    <i class="fas fa-robot icon"></i>
+                    <h3>AI-Powered Learning</h3>
+                    <p>Personalized learning paths, smart content recommendations, and automated assessments powered by advanced AI algorithms. Adaptive learning that evolves with each student's progress.</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fas fa-chalkboard-teacher icon"></i>
+                    <h3>Comprehensive Course Management</h3>
+                    <p>Easy course creation, content organization, and student progress tracking. Support for various content types including video, interactive assessments, and live sessions.</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fas fa-chart-bar icon"></i>
+                    <h3>Advanced Analytics</h3>
+                    <p>Detailed insights into student performance, engagement metrics, and learning patterns. Custom reports and dashboards for data-driven decision making.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="ai-features">
+        <div class="container">
+            <h2>AI-Powered Capabilities</h2>
+            <div class="features-grid">
+                <div class="feature-card" data-aos="fade-up">
+                    <i class="fas fa-brain icon"></i>
+                    <h3>Smart Learning Paths</h3>
+                    <p>AI-driven course recommendations based on student performance and learning style.</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fas fa-comments icon"></i>
+                    <h3>AI Tutoring Assistant</h3>
+                    <p>24/7 intelligent tutoring support for students with natural language understanding.</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fas fa-chart-line icon"></i>
+                    <h3>Predictive Analytics</h3>
+                    <p>Early identification of at-risk students and personalized intervention recommendations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="why-choose">
+        <div class="container">
+            <h2>Deployment Options</h2>
+            <div class="deployment-options">
+                <div class="deployment-card" data-aos="fade-right">
+                    <i class="fas fa-cloud icon"></i>
+                    <h3>Hosted Solution</h3>
+                    <p>Quick start with our fully managed cloud platform:</p>
+                    <ul class="feature-list">
+                        <li>Instant setup and deployment</li>
+                        <li>Automatic updates and maintenance</li>
+                        <li>Scalable infrastructure</li>
+                        <li>99.9% uptime guarantee</li>
+                        <li>Managed backups and security</li>
+                    </ul>
+                </div>
+                <div class="deployment-card" data-aos="fade-left">
+                    <i class="fas fa-server icon"></i>
+                    <h3>On-Premise Deployment</h3>
+                    <p>Full control with your own infrastructure:</p>
+                    <ul class="feature-list">
+                        <li>Complete data sovereignty</li>
+                        <li>Custom integrations</li>
+                        <li>Brand customization</li>
+                        <li>Security policy compliance</li>
+                        <li>Dedicated support team</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="pricing-plans">
+        <div class="container">
+            <h2>Pricing Plans</h2>
+            <div class="plan-grid">
+                <div class="plan-card" data-aos="fade-up">
+                    <h3>Starter</h3>
+                    <div class="price">Contact Us</div>
+                    <ul class="feature-list">
+                        <li>Up to 500 Active Users</li>
+                        <li>Basic AI Features</li>
+                        <li>Standard Analytics</li>
+                        <li>Email Support</li>
+                        <li>Community Forum Access</li>
+                        <li>Basic Integration APIs</li>
+                    </ul>
+                    <a href="../index.html#contact" class="btn">Get Started</a>
+                </div>
+                <div class="plan-card" data-aos="fade-up" data-aos-delay="100">
+                    <h3>Professional</h3>
+                    <div class="price">Contact Us</div>
+                    <ul class="feature-list">
+                        <li>Up to 2000 Active Users</li>
+                        <li>Advanced AI Features</li>
+                        <li>Advanced Analytics</li>
+                        <li>Priority Support</li>
+                        <li>API Access</li>
+                        <li>Custom Branding</li>
+                        <li>Advanced Integrations</li>
+                    </ul>
+                    <a href="../index.html#contact" class="btn">Get Started</a>
+                </div>
+                <div class="plan-card" data-aos="fade-up" data-aos-delay="200">
+                    <h3>Enterprise</h3>
+                    <div class="price">Contact Us</div>
+                    <ul class="feature-list">
+                        <li>Unlimited Users</li>
+                        <li>Full AI Capabilities</li>
+                        <li>Custom Analytics</li>
+                        <li>24/7 Premium Support</li>
+                        <li>Custom Development</li>
+                        <li>On-Premise Option</li>
+                        <li>Dedicated Success Manager</li>
+                        <li>Custom AI Training</li>
+                    </ul>
+                    <a href="../index.html#contact" class="btn">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="workflow">
+        <div class="container">
+            <h2>Implementation Process</h2>
+            <div class="workflow-steps">
+                <div class="step" data-aos="fade-right">
+                    <i class="fas fa-comments icon"></i>
+                    <h3>Consultation</h3>
+                    <p>Understanding your needs and choosing deployment option</p>
+                </div>
+                <div class="step" data-aos="fade-right" data-aos-delay="100">
+                    <i class="fas fa-cog icon"></i>
+                    <h3>Setup</h3>
+                    <p>Platform configuration and customization</p>
+                </div>
+                <div class="step" data-aos="fade-right" data-aos-delay="200">
+                    <i class="fas fa-graduation-cap icon"></i>
+                    <h3>Training</h3>
+                    <p>Admin and user training sessions</p>
+                </div>
+                <div class="step" data-aos="fade-right" data-aos-delay="300">
+                    <i class="fas fa-rocket icon"></i>
+                    <h3>Launch</h3>
+                    <p>Go-live and ongoing support</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <h2>Transform Your Learning Experience</h2>
+            <p>Whether you need a hosted solution or your own custom LMS, we've got you covered.</p>
+            <a href="../index.html#contact" class="btn">Contact Us Today</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Octalis. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init({
+                duration: 1000,
+                once: true,
+                offset: 100,
+                easing: 'ease-in-out'
+            });
+        });
+    </script>
+</body>
+</html> 
