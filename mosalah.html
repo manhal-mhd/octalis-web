@@ -1,0 +1,1156 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سفارة السودان - النمسا | Sudan Embassy - Austria</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #1a5f7a;
+            --secondary-color: #c49b66;
+            --text-color: #4A4A4A;
+            --bg-light: #f9f9f9;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--text-color);
+        }
+
+        /* Enhanced Header Styles */
+        header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        header.scrolled {
+            background: rgba(255,255,255,0.95);
+        }
+
+        .header-container {
+            max-width: 1320px;
+            margin: 0 auto;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 75px;
+            transition: var(--transition);
+        }
+
+        header.scrolled .logo img {
+            height: 60px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary-color);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .language-selector {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .language-selector button {
+            padding: 0.5rem 1rem;
+            border: none;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .language-selector button:hover {
+            background: var(--secondary-color);
+        }
+
+        /* Enhanced Hero Section */
+        .hero {
+            height: 100vh;
+            background-image: url('/api/placeholder/1920/1080');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            margin-top: 90px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.7));
+        }
+
+        .hero-content {
+            position: relative;
+            color: white;
+            text-align: center;
+            max-width: 800px;
+            padding: 2rem;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards;
+            animation-delay: 0.3s;
+        }
+
+        /* Enhanced Services Section */
+        .services {
+            padding: 6rem 2rem;
+            background: var(--bg-light);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+            color: var(--primary-color);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--secondary-color);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1320px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-card i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Enhanced Staff Section */
+        .staff {
+            padding: 6rem 2rem;
+        }
+
+        .staff-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1320px;
+            margin: 0 auto;
+        }
+
+        .staff-card {
+            text-align: center;
+            padding: 2rem;
+            border-radius: 8px;
+            background: white;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: var(--transition);
+        }
+
+        .staff-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .staff-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            overflow: hidden;
+        }
+
+        .staff-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Enhanced Footer */
+        footer {
+            background: var(--primary-color);
+            color: white;
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1320px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1.5rem;
+            color: var(--secondary-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content p {
+                font-size: 1.2rem;
+            }
+        }
+	/* About Section Styles */
+        .about {
+            padding: 6rem 2rem;
+            background: white;
+        }
+
+        .about-container {
+            max-width: 1320px;
+            margin: 0 auto;
+        }
+
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            gap: 4rem;
+        }
+
+        .about-text {
+            text-align: center;
+        }
+
+        .about-description {
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: var(--text-color);
+        }
+
+        .about-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .feature-item {
+            padding: 2rem;
+            text-align: center;
+            border-radius: 8px;
+            transition: var(--transition);
+            background: var(--bg-light);
+        }
+
+        .feature-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .feature-item i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .feature-item h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .feature-item p {
+            color: var(--text-color);
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-item {
+            padding: 2rem;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+            background: var(--secondary-color);
+        }
+
+        .stat-number {
+            display: block;
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-text {
+            font-size: 1.1rem;
+        }
+
+        @media (max-width: 768px) {
+            .about-features {
+                grid-template-columns: 1fr;
+            }
+
+            .about-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .about-description {
+                font-size: 1.1rem;
+                padding: 0 1rem;
+            }
+        }
+	/* News Section Styles */
+.news {
+    padding: 6rem 2rem;
+    background: var(--bg-light);
+}
+
+.news-container {
+    max-width: 1320px;
+    margin: 0 auto;
+}
+
+/* Featured News */
+.featured-news {
+    margin-bottom: 4rem;
+}
+
+.main-news {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: var(--transition);
+}
+
+.main-news:hover {
+    transform: translateY(-5px);
+}
+
+.main-news .news-image {
+    position: relative;
+    height: 400px;
+}
+
+.main-news .news-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.news-date {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: var(--primary-color);
+    color: white;
+    padding: 10px;
+    border-radius: 6px;
+    text-align: center;
+}
+
+.news-date .day {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.news-date .month {
+    font-size: 0.9rem;
+}
+
+.main-news .news-content {
+    padding: 2rem;
+}
+
+.news-category {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: var(--secondary-color);
+    color: white;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+.main-news h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+/* News Grid */
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.news-card {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: var(--transition);
+}
+
+.news-card:hover {
+    transform: translateY(-5px);
+}
+
+.news-card .news-image {
+    position: relative;
+    height: 200px;
+}
+
+.news-card .news-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.news-card .news-content {
+    padding: 1.5rem;
+}
+
+.news-card h4 {
+    font-size: 1.2rem;
+    margin: 1rem 0;
+    color: var(--primary-color);
+}
+
+.read-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--secondary-color);
+    text-decoration: none;
+    margin-top: 1rem;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.read-more:hover {
+    color: var(--primary-color);
+}
+
+/* Pagination */
+.news-pagination {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.pagination-btn {
+    width: 40px;
+    height: 40px;
+    border: none;
+    background: white;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pagination-btn.active {
+    background: var(--primary-color);
+    color: white;
+}
+
+.pagination-btn:hover {
+    background: var(--secondary-color);
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .main-news .news-image {
+        height: 300px;
+    }
+
+    .main-news h3 {
+        font-size: 1.5rem;
+    }
+
+    .news-grid {
+        grid-template-columns: 1fr;
+    }
+}
+	    /* Staff Section Enhanced Styles */
+.staff {
+    padding: 6rem 2rem;
+    background: white;
+}
+
+.staff-section {
+    max-width: 1320px;
+    margin: 0 auto 4rem;
+}
+
+.staff-section:last-child {
+    margin-bottom: 0;
+}
+
+.staff-category {
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 2rem;
+    position: relative;
+    font-size: 1.5rem;
+}
+
+.staff-category::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 3px;
+    background: var(--secondary-color);
+    margin: 1rem auto;
+}
+
+.staff-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 0 auto;
+}
+
+.staff-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: var(--transition);
+    text-align: center;
+    padding: 2rem;
+}
+
+.staff-card:hover {
+    transform: translateY(-5px);
+}
+
+.staff-image {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 1.5rem;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.staff-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.staff-card:hover .staff-image img {
+    transform: scale(1.1);
+}
+
+.staff-social {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(26, 95, 122, 0.9);
+    padding: 0.5rem;
+    transform: translateY(100%);
+    transition: var(--transition);
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.staff-card:hover .staff-social {
+    transform: translateY(0);
+}
+
+.social-link {
+    color: white;
+    font-size: 1.2rem;
+    transition: var(--transition);
+}
+
+.social-link:hover {
+    color: var(--secondary-color);
+}
+
+.staff-info {
+    padding: 1rem 0;
+}
+
+.staff-info h4 {
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.staff-title {
+    color: var(--secondary-color);
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.staff-contact {
+    color: var(--text-color);
+    font-size: 0.85rem;
+    direction: ltr;
+}
+
+@media (max-width: 768px) {
+    .staff {
+        padding: 4rem 1rem;
+    }
+
+    .staff-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .staff-card {
+        max-width: 350px;
+        margin: 0 auto;
+    }
+}
+	    .logo-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.flag-container {
+    width: 40px;
+    height: 30px;
+    position: relative;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    animation: flagWave 3s infinite ease-in-out;
+}
+
+.flag {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform-origin: left;
+    background: linear-gradient(
+        to bottom,
+        #D21034 33.33%,  /* Red */
+        #FFFFFF 33.33%,  /* White */
+        #FFFFFF 66.66%,  /* White */
+        #000000 66.66%   /* Black */
+    );
+}
+
+.flag::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 0;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-left: 30px solid #007229; /* Green */
+}
+
+@keyframes flagWave {
+    0%, 100% {
+        transform: rotateY(0deg);
+    }
+    50% {
+        transform: rotateY(15deg);
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .flag-container {
+        width: 30px;
+        height: 22.5px;
+    }
+
+    .flag::after {
+        border-top-width: 11.25px;
+        border-bottom-width: 11.25px;
+        border-left-width: 22.5px;
+    }
+}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+                 <div class="logo-container">
+                <div class="flag-container">
+                    <div class="flag"></div>
+                </div>
+            </div>
+            <nav>
+		<ul class="nav-links">
+                    <li><a href="#home">الرئيسية</a></li>
+                    <li><a href="#about">عن السفارة</a></li>
+                    <li><a href="#services">الخدمات القنصلية</a></li>
+                    <li><a href="#staff">طاقم السفارة</a></li>
+                    <li><a href="#news">الأخبار</a></li>
+                    <li><a href="#contact">اتصل بنا</a></li>
+                </ul>
+            </nav>
+            <div class="language-selector">
+                <button onclick="changeLanguage('ar')">عربي</button>
+                <button onclick="changeLanguage('en')">English</button>
+                <button onclick="changeLanguage('de')">Deutsch</button>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>سفارة جمهورية السودان</h1>
+            <p>جمهورية النمسا - فيينا</p>
+        </div>
+    </section>
+<section class="about" id="about">
+        <h2 class="section-title">عن السفارة</h2>
+        <div class="about-container">
+            <div class="about-content">
+                <div class="about-text">
+                    <p class="about-description">سفارة جمهورية السودان في فيينا هي الممثل الدبلوماسي الرسمي للسودان في جمهورية النمسا. تعمل السفارة على تعزيز العلاقات الثنائية بين البلدين وخدمة المواطنين السودانيين المقيمين في النمسا.</p>
+                    <div class="about-features">
+                        <div class="feature-item">
+                            <i class="fas fa-handshake"></i>
+                            <h3>التعاون الدبلوماسي</h3>
+                            <p>تعزيز العلاقات الثنائية بين السودان والنمسا في مختلف المجالات</p>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-users"></i>
+                            <h3>خدمة الجالية</h3>
+                            <p>تقديم الخدمات والدعم للمواطنين السودانيين المقيمين في النمسا</p>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-globe"></i>
+                            <h3>التبادل الثقافي</h3>
+                            <p>تعزيز التبادل الثقافي والتعليمي بين البلدين</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">24/7</span>
+                        <span class="stat-text">خدمات طوارئ</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">+1000</span>
+                        <span class="stat-text">معاملة شهرياً</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">+30</span>
+                        <span class="stat-text">عام من الخدمة</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="services" id="services">
+        <h2 class="section-title">الخدمات القنصلية</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <i class="fas fa-passport"></i>
+                <h3>جوازات السفر</h3>
+                <p>خدمات تجديد وإصدار جوازات السفر للمواطنين السودانيين</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-file-signature"></i>
+                <h3>التصديقات</h3>
+                <p>تصديق الوثائق والمستندات الرسمية</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-plane-departure"></i>
+                <h3>التأشيرات</h3>
+                <p>إصدار تأشيرات الدخول إلى السودان</p>
+            </div>
+        </div>
+    </section>
+<section class="staff" id="staff">
+    <h2 class="section-title">طاقم السفارة</h2>
+    
+    <!-- Diplomatic Staff -->
+    <div class="staff-section">
+        <h3 class="staff-category">الطاقم الدبلوماسي</h3>
+        <div class="staff-grid">
+            <div class="staff-card">
+                <div class="staff-image">
+                    <img src="/api/placeholder/150/150" alt="السفير">
+                    <div class="staff-social">
+                        <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="staff-info">
+                    <h4>سعادة السفير</h4>
+                    <p class="staff-title">سفير جمهورية السودان</p>
+                    <p class="staff-contact">ambassador@sudanembassy.at</p>
+                </div>
+            </div>
+
+            <div class="staff-card">
+                <div class="staff-image">
+                    <img src="/api/placeholder/150/150" alt="نائب السفير">
+                    <div class="staff-social">
+                        <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="staff-info">
+                    <h4>نائب السفير</h4>
+                    <p class="staff-title">نائب رئيس البعثة</p>
+                    <p class="staff-contact">deputy@sudanembassy.at</p>
+                </div>
+            </div>
+
+            <div class="staff-card">
+                <div class="staff-image">
+                    <img src="/api/placeholder/150/150" alt="المستشار السياسي">
+                    <div class="staff-social">
+                        <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+                <div class="staff-info">
+                    <h4>المستشار السياسي</h4>
+                    <p class="staff-title">مستشار الشؤون السياسية</p>
+                    <p class="staff-contact">political@sudanembassy.at</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Consular Staff -->
+    <div class="staff-section">
+        <h3 class="staff-category">القسم القنصلي</h3>
+        <div class="staff-grid">
+            <div class="staff-card">
+                <div class="staff-image">
+                    <img src="/api/placeholder/150/150" alt="القنصل العام">
+                    <div class="staff-social">
+                        <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+                <div class="staff-info">
+                    <h4>القنصل العام</h4>
+                    <p class="staff-title">رئيس القسم القنصلي</p>
+                    <p class="staff-contact">consul@sudanembassy.at</p>
+                </div>
+            </div>
+
+            <div class="staff-card">
+                <div class="staff-image">
+                    <img src="/api/placeholder/150/150" alt="نائب القنصل">
+                    <div class="staff-social">
+                        <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+                <div class="staff-info">
+                    <h4>نائب القنصل</h4>
+                    <p class="staff-title">نائب رئيس القسم القنصلي</p>
+                    <p class="staff-contact">vice-consul@sudanembassy.at</p>
+                </div>
+            </div>
+
+            <div class="staff-card">
+                <div class="staff-image">
+                    <img src="/api/placeholder/150/150" alt="موظف قنصلي">
+                    <div class="staff-social">
+                        <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+                <div class="staff-info">
+                    <h4>الملحق القنصلي</h4>
+                    <p class="staff-title">مسؤول الخدمات القنصلية</p>
+                    <p class="staff-contact">consular@sudanembassy.at</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Administrative Staff -->
+    <div class="staff-section">
+        <h3 class="staff-category">الطاقم الإداري</h3>
+        <div class="staff-grid">
+            <div class="staff-card">
+                <div class="staff-image">
+                    <img src="/api/placeholder/150/150" alt="المدير الإداري">
+                    <div class="staff-social">
+                        <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+                <div class="staff-info">
+                    <h4>المدير الإداري</h4>
+                    <p class="staff-title">مدير الشؤون الإدارية</p>
+                    <p class="staff-contact">admin@sudanembassy.at</p>
+                </div>
+            </div>
+
+            <div class="staff-card">
+                <div class="staff-image">
+                    <img src="/api/placeholder/150/150" alt="المحاسب">
+                    <div class="staff-social">
+                        <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+                <div class="staff-info">
+                    <h4>المحاسب</h4>
+                    <p class="staff-title">مسؤول الشؤون المالية</p>
+                    <p class="staff-contact">finance@sudanembassy.at</p>
+                </div>
+            </div>
+
+            <div class="staff-card">
+                <div class="staff-image">
+                    <img src="/api/placeholder/150/150" alt="السكرتير">
+                    <div class="staff-social">
+                        <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+                <div class="staff-info">
+                    <h4>السكرتير التنفيذي</h4>
+                    <p class="staff-title">سكرتير السفارة</p>
+                    <p class="staff-contact">secretary@sudanembassy.at</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="news" id="news">
+    <h2 class="section-title">آخر الأخبار والتحديثات</h2>
+    <div class="news-container">
+        <div class="featured-news">
+            <article class="main-news">
+                <div class="news-image">
+                    <img src="/api/placeholder/800/500" alt="الخبر الرئيسي">
+                    <div class="news-date">
+                        <span class="day">15</span>
+                        <span class="month">يونيو</span>
+                    </div>
+                </div>
+                <div class="news-content">
+                    <div class="news-category">أخبار رسمية</div>
+                    <h3>زيارة رسمية لوفد سوداني إلى النمسا</h3>
+                    <p>تفاصيل الزيارة الرسمية للوفد السوداني ولقاءاته مع المسؤولين النمساويين لبحث سبل التعاون المشترك...</p>
+                    <a href="#" class="read-more">اقرأ المزيد <i class="fas fa-arrow-left"></i></a>
+                </div>
+            </article>
+        </div>
+
+        <div class="news-grid">
+            <article class="news-card">
+                <div class="news-image">
+                    <img src="/api/placeholder/400/300" alt="خبر">
+                    <div class="news-date">
+                        <span class="day">12</span>
+                        <span class="month">يونيو</span>
+                    </div>
+                </div>
+                <div class="news-content">
+                    <div class="news-category">تحديثات قنصلية</div>
+                    <h4>تحديث إجراءات التصديقات</h4>
+                    <p>تعلن السفارة عن تحديث إجراءات تصديق المستندات...</p>
+                    <a href="#" class="read-more">اقرأ المزيد <i class="fas fa-arrow-left"></i></a>
+                </div>
+            </article>
+
+            <article class="news-card">
+                <div class="news-image">
+                    <img src="/api/placeholder/400/300" alt="خبر">
+                    <div class="news-date">
+                        <span class="day">10</span>
+                        <span class="month">يونيو</span>
+                    </div>
+                </div>
+                <div class="news-content">
+                    <div class="news-category">فعاليات ثقافية</div>
+                    <h4>معرض التراث السوداني</h4>
+                    <p>تنظم السفارة معرضاً للتراث السوداني في فيينا...</p>
+                    <a href="#" class="read-more">اقرأ المزيد <i class="fas fa-arrow-left"></i></a>
+                </div>
+            </article>
+
+            <article class="news-card">
+                <div class="news-image">
+                    <img src="/api/placeholder/400/300" alt="خبر">
+                    <div class="news-date">
+                        <span class="day">8</span>
+                        <span class="month">يونيو</span>
+                    </div>
+                </div>
+                <div class="news-content">
+                    <div class="news-category">إعلانات</div>
+                    <h4>تغيير مواعيد العمل</h4>
+                    <p>إعلان هام بخصوص تعديل مواعيد العمل خلال شهر رمضان...</p>
+                    <a href="#" class="read-more">اقرأ المزيد <i class="fas fa-arrow-left"></i></a>
+                </div>
+            </article>
+        </div>
+
+        <div class="news-pagination">
+            <button class="pagination-btn active">1</button>
+            <button class="pagination-btn">2</button>
+            <button class="pagination-btn">3</button>
+            <button class="pagination-btn next"><i class="fas fa-chevron-left"></i></button>
+        </div>
+    </div>
+</section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>معلومات الاتصال</h3>
+                <p>العنوان: فيينا، النمسا</p>
+                <p>الهاتف: +43 XXX XXX XXX</p>
+                <p>البريد الإلكتروني: info@sudanembassy.at</p>
+            </div>
+            <div class="footer-section">
+                <h3>ساعات العمل</h3>
+                <p>الإثنين - الجمعة</p>
+                <p>9:00 صباحاً - 3:00 مساءً</p>
+            </div>
+            <div class="footer-section">
+                <h3>روابط سريعة</h3>
+                <p>خدمات القنصلية</p>
+                <p>المستندات المطلوبة</p>
+                <p>حجز المواعيد</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>جميع الحقوق محفوظة © 2024 سفارة جمهورية السودان - فيينا</p>
+        </div>
+    </footer>
+
+    <script>
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Language switcher
+        function changeLanguage(lang) {
+            console.log('Switching to language:', lang);
+            // Implement language switching logic here
+        }
+    </script>
+</body>
+</html> 
